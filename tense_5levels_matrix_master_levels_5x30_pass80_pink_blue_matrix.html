@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Kru Pai Classroom — 5 Tenses Matrix MASTER (Levels) • True/False</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700;900&family=Rubik:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#ec4899;
+  --pinkSoft:#fbcfe8;
+  --blue:#2563eb;
+  --blueSoft:#dbeafe;
+
+  --bg0:#ffffff;
+  --bg1:#fdf2f8;
+
+  --card:#ffffff;
+  --line:rgba(236,72,153,.25);
+
+  --ink:#1e3a8a;
+  --muted:#6b21a8;
+
+  --ok:#22c55e;
+  --bad:#ef4444;
+
+  --shadow:0 12px 30px rgba(236,72,153,.18);
+
+  --neon:#22c55e; --aqua:#00ffd1; --mint:#6ee7b7; --gold:#b4ff39;
+  --bg0:#000; --bg1:#06120a;
+  --card:rgba(5,20,12,.92);
+  --line:#22c55e55;
+  --ink:#d1fae5; --muted:#9fe9c8;
+  --ok:#34d399; --bad:#fb7185;
+  --shadow:0 0 28px rgba(34,197,94,.25);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  font-family:"Noto Sans Thai","Rubik",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at top, rgba(236,72,153,.10), transparent 42%),
+    radial-gradient(circle at 80% 20%, rgba(37,99,235,.12), transparent 45%),
+    linear-gradient(180deg,var(--bg1),var(--bg0));
+  overflow-x:hidden;
+}
+#rain{position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.28;}
+.layer{position:relative; z-index:1}
+
+.header{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(0,0,0,.82), rgba(0,0,0,.45));
+  border-bottom:1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.banner{max-width:1100px;margin:auto;display:flex;align-items:center;gap:12px;padding:12px 12px}
+.logo{
+  width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
+  background:conic-gradient(from 0deg,#22c55e,#00ffd1,#22c55e);
+  color:#001b0d;font-weight:900;
+  box-shadow:0 0 18px rgba(34,197,94,.5);
+}
+.brand{font-weight:900;font-size:clamp(16px,2.6vw,24px)}
+.sub{margin-left:auto;font-size:12px;color:#a7f3d0;opacity:.9;text-align:right}
+.badge{
+  display:inline-block;margin-top:4px;
+  font-weight:900;font-size:12px;
+  padding:6px 10px;border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(0,0,0,.35);
+}
+
+.wrap{max-width:1100px;margin:0 auto;padding:14px 12px 28px}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+.hide{display:none !important}
+.bigtitle{
+  font-weight:900;
+  font-size:clamp(22px,4vw,36px);
+  text-shadow:0 0 18px rgba(34,197,94,.35);
+}
+.tagline{color:var(--muted);font-size:clamp(13px,2.4vw,17px);line-height:1.6}
+.pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:6px}
+.pill{padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.35);color:#a7f3d0;font-weight:900;font-size:12px}
+
+.btn{
+  border:none; cursor:pointer;
+  padding:12px 14px;border-radius:14px;
+  font-weight:900; letter-spacing:.2px;
+  color:#001b0d;
+  background: linear-gradient(180deg, #f9a8d4, #ec4899); color:white;
+  box-shadow: 0 10px 0 #0b5b33, 0 18px 36px rgba(34,197,94,.25);
+  transform:translateY(0);
+  transition:.15s;
+}
+.btn:hover{transform:translateY(-2px); box-shadow: 0 10px 0 #0b5b33, 0 0 22px rgba(34,197,94,.35);}
+.btn:active{transform:translateY(2px)}
+.btn.ghost{
+  background:rgba(0,0,0,.35);
+  color:#a7f3d0;
+  border:1px solid var(--line);
+  box-shadow:none;
+}
+.btn.danger{
+  background:linear-gradient(180deg,#93c5fd,#2563eb);
+  box-shadow: 0 10px 0 #7a2531, 0 18px 36px rgba(251,113,133,.2);
+}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center}
+.note{font-size:12px;color:#9fe9c8;opacity:.9}
+.input{
+  display:flex;gap:10px;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.35);
+  border:1px solid var(--line);
+  padding:10px 12px;border-radius:14px;
+  width:min(560px,96%);
+}
+.input input{flex:1;border:none;background:transparent;outline:none;color:var(--ink);font-size:18px;min-width:160px}
+
+.ctrl{position:fixed; right:12px; top:88px; z-index:60; display:grid; gap:8px}
+.toggle{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  padding:10px 12px;border-radius:14px;border:1px solid var(--line);
+  background:rgba(0,0,0,.45); box-shadow:0 0 18px rgba(34,197,94,.18);
+  color:#a7f3d0; font-weight:900; width:215px;
+}
+.switch{width:48px;height:26px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid var(--line);position:relative}
+.switch i{
+  position:absolute; top:2px; left:2px;
+  width:20px;height:20px;border-radius:50%;
+  background:linear-gradient(180deg,#a7f3d0,#22c55e);
+  box-shadow:0 0 14px rgba(34,197,94,.45);
+  transition:.15s;
+}
+.switch.on{background:rgba(34,197,94,.25)}
+.switch.on i{left:26px}
+@media (max-width:560px){
+  .ctrl{right:10px; top:78px}
+  .toggle{width:192px}
+  .sub{display:none}
+}
+
+.levels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+@media (max-width:720px){ .levels{grid-template-columns:1fr;} }
+.level{
+  padding:14px;
+  background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.15));
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:0 0 22px rgba(34,197,94,.14);
+}
+.level h3{margin:0;font-weight:900;font-size:18px}
+.level .meta{margin-top:6px;color:#a7f3d0;font-weight:900;font-size:12px;display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.35)}
+.hist{margin-top:10px;border-top:1px dashed var(--line);padding-top:10px}
+.histTitle{font-weight:900;color:#a7f3d0;margin-bottom:8px}
+.histList{display:grid;gap:6px}
+.histItem{padding:8px 10px;border-radius:14px;border:1px solid rgba(34,197,94,.25);background:rgba(0,0,0,.22);font-weight:900;color:#d1fae5;font-size:13px}
+.small{font-size:12px;color:#9fe9c8;font-weight:800}
+
+.hud{
+  display:flex;justify-content:space-between;align-items:center;gap:8px;
+  padding:10px 12px;border-bottom:1px dashed var(--line);
+  flex-wrap:wrap;
+}
+.hud .pill2{
+  font-size:12px;color:#a7f3d0;font-weight:900;
+  background:rgba(0,0,0,.35);
+  border:1px solid var(--line);
+  padding:6px 10px;border-radius:999px;
+}
+.progress{height:8px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden;border:1px solid var(--line);margin:0 12px 12px}
+.progress>div{height:100%;width:0%;background:linear-gradient(90deg,#22c55e,#00ffd1,#22c55e); box-shadow:0 0 12px rgba(0,255,209,.5)}
+.stage{padding:12px}
+.qbox{
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.15));
+  padding:14px;
+  box-shadow:0 0 22px rgba(34,197,94,.18);
+}
+.qtext{margin-top:6px;font-weight:900;font-size:clamp(18px,2.9vw,26px);line-height:1.35}
+.answerRow{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+.answerRow .btn{min-width:220px;font-size:20px;padding:16px 18px}
+.feedback{margin-top:12px;display:flex;justify-content:center}
+.feedback span{
+  display:inline-block;padding:10px 12px;border-radius:14px;
+  border:1px solid var(--line);background:rgba(0,0,0,.35);
+  font-weight:900; box-shadow:0 0 18px rgba(34,197,94,.15);
+}
+.fb-ok{color:#6ee7b7}
+.fb-no{color:#ffb4c0}
+.explain{
+  margin-top:10px;
+  padding:10px 12px;border-radius:14px;
+  border:1px dashed var(--line);
+  background:rgba(0,0,0,.25);
+  color:#b7ffe0;font-weight:800;line-height:1.55;
+}
+.explain b{color:#d1fae5}
+
+.emoji-float{
+  position:fixed;
+  font-size:34px;
+  pointer-events:none;
+  z-index:70;
+  text-shadow:0 0 18px rgba(34,197,94,.55);
+  animation:floatUp 1.2s ease-out forwards;
+}
+@keyframes floatUp{
+  from{transform:translateY(0) scale(1);opacity:1}
+  to{transform:translateY(-140px) scale(1.1);opacity:0}
+}
+.confetti{position:fixed; left:0; top:0; width:100%; height:100%; pointer-events:none; overflow:hidden; z-index:65}
+.confetti i{position:absolute; width:8px; height:12px; opacity:.95; animation:fall 900ms linear forwards; box-shadow:0 0 10px rgba(0,255,209,.45)}
+@keyframes fall{ to{ transform:translateY(120vh) rotate(420deg); opacity:0 } }
+</style>
+</head>
+<body>
+<canvas id="rain"></canvas>
+
+<div class="header layer">
+  <div class="banner">
+    <div class="logo">KP</div>
+    <div class="brand">Kru Pai Classroom — <span style="color:var(--mint)">5 Tenses Matrix MASTER</span></div>
+    <div class="sub">
+      True / False • เลือกด่าน • ผ่าน 80%<br/>
+      <span class="badge">Level Select + Pass History + Sound + Emoji</span>
+    </div>
+  </div>
+</div>
+
+<div class="ctrl layer">
+  <div class="toggle" onclick="toggleRain()">
+    <span>Matrix Rain</span>
+    <div id="swRain" class="switch on"><i></i></div>
+  </div>
+  <div class="toggle" onclick="toggleSound()">
+    <span>Sound FX</span>
+    <div id="swSound" class="switch on"><i></i></div>
+  </div>
+</div>
+
+<div class="wrap layer">
+  <!-- LOGIN -->
+  <div id="screenLogin" class="card" style="padding:18px;display:grid;gap:12px;justify-items:center;text-align:center">
+    <div class="bigtitle">MISSION: 5 TENSES (พื้นฐาน)</div>
+    <div class="tagline">ฝึกจับผิด “กฎของ Tense” ทีละด่าน — บอกเล่า • คำถาม • ปฏิเสธ</div>
+    <div class="pills">
+      <div class="pill">ด่านละ 30 ข้อ</div>
+      <div class="pill">ผ่านเมื่อ ≥ 80% (24/30)</div>
+      <div class="pill">ไม่ผ่าน → ไม่บันทึกคะแนน</div>
+      <div class="pill">ผ่าน → บันทึกทุกครั้งที่ผ่าน</div>
+    </div>
+
+    <div class="card" style="width:min(920px,96%);padding:14px;background:rgba(0,0,0,.30)">
+      <div style="font-weight:900;color:var(--gold);font-size:18px">🎮 วิธีการเล่น</div>
+      <div class="tagline" style="margin-top:6px;text-align:left">
+        1) ใส่ชื่อเล่น แล้วกด <b>เข้าสู่หน้าเลือกด่าน</b><br/>
+        2) เลือก 1 ด่าน (แต่ละด่านคือ 1 Tense)<br/>
+        3) เกมสุ่มคำถาม <b>30 ข้อ</b> (TRUE/FALSE) จากคลังข้อสอบในด่านนั้น<br/>
+        4) กด <b>✅ TRUE</b> หรือ <b>❌ FALSE</b> — คะแนนอัปเดตแบบเรียลไทม์ + มีเสียง/เอฟเฟกต์<br/>
+        5) จบด่านแล้วต้องได้อย่างน้อย <b>24/30</b> จึงถือว่า “ผ่าน”<br/>
+        6) ถ้าผ่าน ระบบจะบันทึกคะแนนไว้ที่หน้าเลือกด่าน (เล่นซ้ำกี่รอบก็เก็บ “รอบที่ผ่าน” ทุกครั้ง)
+      </div>
+    </div>
+
+    <div class="input">
+      <span style="font-weight:900;color:#a7f3d0">ชื่อเล่น:</span>
+      <input id="playerName" placeholder="เช่น Emma / Aladin / Kru Pai"/>
+    </div>
+    <div class="row">
+      <button class="btn" onclick="enterLevels()">เข้าสู่หน้าเลือกด่าน ▶</button>
+      <button class="btn ghost" onclick="quickDemo()">ลองเดโม่ 3 ข้อ</button>
+    </div>
+    <div class="note">* เสียงจะเริ่มหลังคลิกครั้งแรก (กติกาเบราว์เซอร์)</div>
+  </div>
+
+  <!-- LEVEL SELECT -->
+  <div id="screenLevels" class="card hide" style="padding:18px">
+    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
+      <div>
+        <div class="bigtitle" style="font-size:28px">เลือกด่าน (Tense Levels)</div>
+        <div class="tagline">ผู้เล่น: <b id="whoLevels">-</b> • เลือก 1 ด่านเพื่อเริ่มทดสอบ</div>
+      </div>
+      <div class="row">
+        <button class="btn ghost" onclick="resetPlayer()">เปลี่ยนชื่อผู้เล่น</button>
+        <button class="btn danger" onclick="clearAllHistory()">ล้างประวัติ (คนนี้)</button>
+      </div>
+    </div>
+
+    <div id="levelGrid" class="levels"></div>
+    <div class="note" style="margin-top:10px">* หน้าเลือกด่านจะแสดงเฉพาะ “รอบที่ผ่าน” เท่านั้น</div>
+  </div>
+
+  <!-- GAME -->
+  <div id="screenGame" class="card hide">
+    <div class="hud">
+      <div class="pill2">ด่าน: <b id="levelName">-</b></div>
+      <div class="pill2">ข้อ <b id="step">1</b>/30</div>
+      <div class="pill2">คะแนนเรียลไทม์ <b id="score">0</b></div>
+      <div class="pill2">เป้าหมายผ่าน <b>24/30</b></div>
+      <div class="pill2">ผู้เล่น <b id="whoGame">-</b></div>
+    </div>
+    <div class="progress"><div id="bar"></div></div>
+
+    <div class="stage">
+      <div class="qbox">
+        <div class="tagline" id="qTag" style="margin:0;color:#a7f3d0;font-weight:900">—</div>
+        <div id="qText" class="qtext">—</div>
+
+        <div class="answerRow">
+          <button class="btn" id="btnTrue" onclick="answer(true)">✅ TRUE</button>
+          <button class="btn danger" id="btnFalse" onclick="answer(false)">❌ FALSE</button>
+        </div>
+
+        <div id="fb" class="feedback"></div>
+        <div id="explain" class="explain hide"></div>
+      </div>
+    </div>
+
+    <div class="row" style="padding:0 12px 14px">
+      <button class="btn ghost" onclick="backToLevels()">⬅ กลับหน้าเลือกด่าน</button>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="screenResult" class="card hide" style="padding:18px;display:grid;gap:12px;justify-items:center;text-align:center">
+    <div class="bigtitle" id="resultTitle">สรุปผล</div>
+    <div class="tagline">ด่าน: <b id="resultLevel">-</b> • ผู้เล่น: <b id="resultWho">-</b></div>
+    <div class="card" style="width:min(820px,96%);padding:14px;background:rgba(0,0,0,.30)">
+      <div style="font-weight:900;font-size:18px">คะแนน: <span style="color:var(--gold);font-size:22px" id="resultScore">0</span> / 30</div>
+      <div style="margin-top:6px;font-weight:900" id="resultPass">—</div>
+      <div class="small" id="resultNote">—</div>
+    </div>
+    <div class="row">
+      <button class="btn" onclick="playAgain()">เล่นด่านนี้อีกครั้ง</button>
+      <button class="btn ghost" onclick="backToLevels()">กลับหน้าเลือกด่าน</button>
+    </div>
+  </div>
+</div>
+
+<div id="fx" class="confetti hide"></div>
+
+<script>
+/* =========================
+   Question Banks (per level)
+   Format: [sentence, isCorrect, explanation]
+   Each attempt: random 30 from bank.
+   ========================= */
+const BANKS = {
+  ps: { title:"Present Simple", tag:"🟢 PRESENT SIMPLE", items:[
+    ["He plays football every day.", true, "รูปบอกเล่า: He/She/It + V(s/es)"],
+    ["She go to school by bus.", false, "She ต้องใช้ goes (เติม s/es)"],
+    ["Do you like milk?", true, "คำถาม: Do + I/you/we/they + V1?"],
+    ["Does he like milk?", true, "คำถาม: Does + he/she/it + V1?"],
+    ["He doesn't likes coffee.", false, "หลัง doesn't ต้องใช้ V1 → like"],
+    ["They doesn't live here.", false, "They ใช้ don't (ไม่ใช้ doesn't)"],
+    ["I don't plays games on weekdays.", false, "หลัง don't ต้องใช้ V1 → play"],
+    ["My mom cooks every morning.", true, "He/She/It เติม s/es เมื่อเป็นปัจจุบันทั่วไป"],
+    ["The sun rises in the east.", true, "ความจริงทั่วไปใช้ Present Simple"],
+    ["We are play football every day.", false, "Present Simple ไม่ใช้ are + V (ต้องเป็น play)"],
+    ["Do she go to school?", false, "She ต้องใช้ Does → Does she go...?"],
+    ["Does she goes to school?", false, "หลัง Does ต้องใช้ V1 → go"],
+    ["Tom and Jane study English every Saturday.", true, "ประธานพหูพจน์ใช้ V1 ไม่เติม s"],
+    ["My brother study English every day.", false, "My brother เป็นเอกพจน์ → studies"],
+    ["I am go to school every day.", false, "Present Simple ไม่ใช้ am + go (ควรเป็น I go...)"],
+    ["Where do you live?", true, "Wh- question + do + subject + V1"],
+    ["Where does he live?", true, "Where + does + he + live"],
+    ["She watches TV every night.", true, "watch → watches (เติม es)"],
+    ["He watchs TV every night.", false, "สะกดผิด ต้องเป็น watches"],
+    ["They watch TV every night.", true, "They ใช้ watch (ไม่เติม s)"],
+    ["I like cats.", true, "I ใช้ V1"],
+    ["He like cats.", false, "He ต้อง likes"],
+    ["Do they likes cats?", false, "หลัง Do ต้อง V1 → like"],
+    ["Does it rain a lot in Bangkok?", true, "It ใช้ Does + V1"],
+    ["He doesn't go to school on Sunday.", true, "ปฏิเสธเอกพจน์ใช้ doesn't + V1"],
+    ["We don't goes to school on Sunday.", false, "หลัง don't ต้อง V1 → go"],
+    ["My dad fixes computers.", true, "fix → fixes (เติม es)"],
+    ["My dad fix computers.", false, "เอกพจน์ต้องเติม s/es"],
+    ["Do I needs to bring a pen?", false, "หลัง Do ใช้ V1 → need"],
+    ["She doesn't need help.", true, "doesn't + V1 ถูกต้อง"],
+    ["They don't need help.", true, "don't + V1 ถูกต้อง"],
+    ["He doesn't has a car.", false, "หลัง doesn't ใช้ have → doesn't have"],
+    ["He has a car.", true, "บอกเล่าเอกพจน์: has"],
+    ["Do you have a car?", true, "Do + you + have"],
+    ["Does she have a car?", true, "Does + she + have"],
+    ["She have a car.", false, "She ต้อง has"],
+    ["We goes to the market every week.", false, "We ใช้ go ไม่เติม s"],
+    ["I go to bed at 9 p.m.", true, "นิสัย/กิจวัตร Present Simple"]
+  ]},
+  pc: { title:"Present Continuous", tag:"🔵 PRESENT CONTINUOUS", items:[
+    ["She is cooking dinner now.", true, "be (am/is/are) + V-ing ใช้กับ now"],
+    ["They are play outside.", false, "ต้องเป็น are playing"],
+    ["Is he studying?", true, "คำถาม: Is/Are/Am + subject + V-ing?"],
+    ["She isn't sleep now.", false, "ต้องเป็น isn't sleeping"],
+    ["We are waiting for the bus.", true, "be + V-ing ถูกต้อง"],
+    ["I am study English right now.", false, "ต้องเป็น am studying"],
+    ["He is playing football at the moment.", true, "at the moment ใช้กับ continuous"],
+    ["They is playing football.", false, "They ต้อง are"],
+    ["Are you listening to me?", true, "Are + you + V-ing"],
+    ["Do you listening to me?", false, "continuous ต้องใช้ Are/Is/Am ไม่ใช้ Do"],
+    ["He is not coming today.", true, "is not + V-ing"],
+    ["He doesn't coming today.", false, "ปฏิเสธ continuous ใช้ isn't/aren't ไม่ใช้ don't"],
+    ["Look! The baby is crying.", true, "Look! มักใช้ present continuous"],
+    ["The baby cries now.", false, "ถ้าเน้นตอนนี้ควรใช้ is crying"],
+    ["I am not understand.", false, "ควรเป็น I don't understand (verb stative)"],
+    ["We are having lunch now.", true, "having (กิน) ใช้ continuous ได้"],
+    ["She is wearing a jacket.", true, "wearing แสดงการกระทำกำลังเกิดขึ้น/สภาพปัจจุบัน"],
+    ["He are running fast.", false, "He ต้อง is"],
+    ["The students are writing a test.", true, "are + writing"],
+    ["Are they write a test now?", false, "หลัง Are ต้อง V-ing → writing"],
+    ["She is making a cake.", true, "is making"],
+    ["She is make a cake.", false, "ต้อง V-ing"],
+    ["I'm not playing games.", true, "am not + V-ing (รูปย่อถูกต้อง)"],
+    ["We aren't going to school today.", true, "aren't + going"],
+    ["He isn't go to school today.", false, "ต้อง isn't going"],
+    ["Is it raining?", true, "is raining"],
+    ["It is rain now.", false, "ต้อง is raining"],
+    ["They are studying in the library.", true, "are studying"],
+    ["Are you study now?", false, "ต้อง are you studying"],
+    ["I am chatting with my friend.", true, "am chatting"],
+    ["I am chat with my friend.", false, "ต้อง V-ing"],
+    ["She is reading a book at the moment.", true, "at the moment → continuous"],
+    ["She reads a book at the moment.", false, "at the moment ไม่ใช่นิสัย"],
+    ["We are not watch TV.", false, "ต้อง not watching"],
+    ["He isn't listening.", true, "isn't listening"],
+    ["Are they sleeping?", true, "Are + they + sleeping"],
+    ["Do they sleeping?", false, "ต้องใช้ Are"]
+  ]},
+  past: { title:"Past Simple", tag:"🟠 PAST SIMPLE", items:[
+    ["I visited my grandma yesterday.", true, "yesterday → Past Simple"],
+    ["She didn't went home.", false, "หลัง didn't ใช้ V1 → go"],
+    ["Did you see him?", true, "Did + subject + V1"],
+    ["They was happy last night.", false, "They ต้อง were"],
+    ["We finished the test.", true, "V2 ใช้เล่าเหตุการณ์จบแล้ว"],
+    ["He goes to school yesterday.", false, "เมื่อมี yesterday ต้องใช้ went"],
+    ["I didn't watch TV last night.", true, "didn't + V1 ถูกต้อง"],
+    ["I didn't watched TV last night.", false, "หลัง didn't ต้อง V1"],
+    ["Did she play tennis?", true, "Did + she + play"],
+    ["Did she played tennis?", false, "หลัง Did ต้อง V1"],
+    ["He bought a new phone.", true, "buy → bought (V2)"],
+    ["He buyed a new phone.", false, "สะกดผิด ต้อง bought"],
+    ["We were at home yesterday.", true, "was/were ใช้กับ past"],
+    ["I was at home yesterday.", true, "I ใช้ was"],
+    ["I were at home yesterday.", false, "I ต้อง was"],
+    ["She was not here yesterday.", true, "was not (wasn't) ถูกต้อง"],
+    ["She isn't here yesterday.", false, "yesterday ต้องใช้ wasn't/was not"],
+    ["They didn't have breakfast.", true, "didn't + have (V1)"],
+    ["They didn't had breakfast.", false, "หลัง didn't ต้อง have"],
+    ["Where did you go?", true, "Where + did + subject + V1"],
+    ["Where did he went?", false, "หลัง did ต้อง go"],
+    ["I saw a movie last week.", true, "saw เป็น V2 ของ see"],
+    ["I see a movie last week.", false, "last week → ต้อง saw"],
+    ["He didn't do homework.", true, "didn't + do"],
+    ["He didn't did homework.", false, "หลัง didn't ต้อง do"],
+    ["We played football two days ago.", true, "two days ago → past"],
+    ["We play football two days ago.", false, "ต้อง played"],
+    ["Did they come?", true, "Did + they + come"],
+    ["They came late.", true, "come → came (V2)"],
+    ["They comed late.", false, "ผิด ต้อง came"],
+    ["She studied English.", true, "study → studied"],
+    ["She study English yesterday.", false, "ต้อง studied"],
+    ["He was cooking when I arrived.", true, "เหตุการณ์กำลังเกิดในอดีต (ประโยคยอมรับได้)"],
+    ["He cooked when I arrived.", true, "Past Simple เล่าเหตุการณ์ในอดีตได้"],
+    ["Did you drink water?", true, "Did + drink"],
+    ["Did you drank water?", false, "หลัง Did ต้อง drink"],
+    ["We weren't tired.", true, "were not → weren't"],
+    ["She weren't tired.", false, "She ต้อง wasn't"]
+  ]},
+  fut: { title:"Future (will)", tag:"🟣 FUTURE (WILL)", items:[
+    ["I will call you later.", true, "will + V1"],
+    ["She will goes tomorrow.", false, "หลัง will ใช้ V1 → go"],
+    ["Will you help me?", true, "Will + subject + V1?"],
+    ["They will not coming.", false, "ต้อง will not come"],
+    ["He will be a doctor.", true, "will be ใช้กับอนาคต"],
+    ["I won't forget you.", true, "won't = will not"],
+    ["He will not to go.", false, "หลัง will ไม่ใช้ to → will not go"],
+    ["Will she comes?", false, "หลัง Will ใช้ V1 → come"],
+    ["Will she come?", true, "Will + she + come"],
+    ["We will study tonight.", true, "will + study"],
+    ["We will studied tonight.", false, "หลัง will ต้อง V1"],
+    ["I will not eat now.", true, "will not + V1"],
+    ["I don't will eat now.", false, "อนาคตแบบ will ไม่ใช้ don't will"],
+    ["It will rain tomorrow.", true, "พยากรณ์อนาคตใช้ will"],
+    ["It will rains tomorrow.", false, "หลัง will ใช้ rain"],
+    ["Where will you go?", true, "Where + will + subject + V1"],
+    ["Where will you goes?", false, "หลัง will ใช้ go"],
+    ["She will help you.", true, "will help"],
+    ["She will helped you.", false, "หลัง will ต้อง help"],
+    ["They will be late.", true, "will be late"],
+    ["They will are late.", false, "หลัง will ใช้ be ไม่ใช้ are"],
+    ["I will see you soon.", true, "will see"],
+    ["I will saw you soon.", false, "หลัง will ใช้ see"],
+    ["Will it work?", true, "Will it work?"],
+    ["Will it works?", false, "หลัง Will ใช้ work"],
+    ["He won't going.", false, "ต้อง be going? แต่ถ้าใช้ will ต้องเป็น won't go"],
+    ["He won't go.", true, "won't + V1"],
+    ["We will not be angry.", true, "will not be"],
+    ["We will not angry.", false, "ต้องมี be → will not be angry"],
+    ["I will do my homework.", true, "will do"],
+    ["I will did my homework.", false, "หลัง will ต้อง do"],
+    ["Will they play?", true, "Will + play"],
+    ["Will they playing?", false, "หลัง will ใช้ V1"],
+    ["She will arrive at 6.", true, "will arrive"],
+    ["She will arriving at 6.", false, "หลัง will ใช้ arrive"]
+  ]},
+  pp: { title:"Present Perfect", tag:"🟡 PRESENT PERFECT", items:[
+    ["I have finished my work.", true, "have/has + V3"],
+    ["She has went to school.", false, "go V3 = gone → has gone"],
+    ["Have you ever been there?", true, "Have + subject + V3?"],
+    ["He have eaten already.", false, "He ต้อง has eaten"],
+    ["We have lived here for years.", true, "for + ระยะเวลา → present perfect"],
+    ["She has finished her homework.", true, "has + V3"],
+    ["She have finished her homework.", false, "She ต้อง has"],
+    ["I has finished my work.", false, "I ต้อง have"],
+    ["Have he finished?", false, "คำถาม: Has he finished?"],
+    ["Has he finished?", true, "Has + he + V3"],
+    ["They have already left.", true, "already ใช้กับ present perfect"],
+    ["They have leave already.", false, "ต้อง V3 → left"],
+    ["I have see this movie.", false, "see V3 = seen → have seen"],
+    ["I have seen this movie.", true, "have seen ถูกต้อง"],
+    ["She has been to Japan.", true, "been ใช้กับ has/have been"],
+    ["She has went to Japan.", false, "went เป็น V2 ไม่ใช่ V3"],
+    ["We have just eaten.", true, "just + V3"],
+    ["We have just ate.", false, "ต้อง eaten (V3)"],
+    ["I haven't finished yet.", true, "haven't + V3"],
+    ["I didn't finished yet.", false, "present perfect ไม่ใช้ did"],
+    ["How long have you lived here?", true, "How long + have + lived"],
+    ["How long do you lived here?", false, "รูปคำถามผิด ควร have you lived"],
+    ["He has never tried sushi.", true, "never + has + V3"],
+    ["He has never try sushi.", false, "ต้อง tried (V3)"],
+    ["They have done the project.", true, "do V3 = done"],
+    ["They have did the project.", false, "did เป็น V2 ไม่ใช่ V3"],
+    ["I have known her for 3 years.", true, "know (stative) ใช้ present perfect ได้"],
+    ["I know her for 3 years.", false, "for 3 years → ใช้ have known"],
+    ["She has lived here since 2020.", true, "since + จุดเริ่มต้น"],
+    ["She lived here since 2020.", false, "since → ใช้ has lived"],
+    ["Have you finished?", true, "Have you finished?"],
+    ["Did you finished?", false, "present perfect ไม่ใช้ did"],
+    ["He has already arrived.", true, "has arrived (V3)"],
+    ["He has already arrive.", false, "ต้อง arrived (V3)"],
+    ["We have been friends for a long time.", true, "have been + for"],
+    ["We are friends for a long time.", false, "for a long time → ใช้ have been"],
+    ["She has broken her phone.", true, "break V3 = broken"],
+    ["She has broke her phone.", false, "broke เป็น V2 ไม่ใช่ V3"]
+  ]}
+};
+
+const LEVELS = [
+  {id:"ps", icon:"🟢", color:"#22c55e"},
+  {id:"pc", icon:"🔵", color:"#38bdf8"},
+  {id:"past", icon:"🟠", color:"#fb923c"},
+  {id:"fut", icon:"🟣", color:"#a78bfa"},
+  {id:"pp", icon:"🟡", color:"#fbbf24"}
+];
+
+let player = "ผู้เล่น";
+let currentLevelId = null;
+let questions = []; // 30 sampled
+let i = 0, score = 0;
+
+/* ===== storage: pass only ===== */
+function keyFor(levelId){ return `kp_tense_matrix_tf_v1:${player}:${levelId}`; }
+function loadPassHistory(levelId){
+  try{ const raw = localStorage.getItem(keyFor(levelId)); return raw ? JSON.parse(raw) : []; }
+  catch(e){ return []; }
+}
+function savePassAttempt(levelId, attempt){
+  const arr = loadPassHistory(levelId);
+  arr.push(attempt);
+  localStorage.setItem(keyFor(levelId), JSON.stringify(arr));
+}
+function clearPlayerHistory(){ LEVELS.forEach(L=> localStorage.removeItem(keyFor(L.id))); }
+
+/* ===== sound ===== */
+let soundOn = true;
+let rainOn = true;
+let ctx = null;
+let ambientNodes = null;
+
+function audioCtx(){ if(!ctx) ctx = new (window.AudioContext||window.webkitAudioContext)(); return ctx; }
+function beep(f=880, d=0.07, type='sine', gain=0.18){
+  if(!soundOn) return;
+  try{
+    const ac = audioCtx();
+    const o = ac.createOscillator();
+    const g = ac.createGain();
+    o.type = type; o.frequency.value = f;
+    g.gain.value = 0.0001;
+    o.connect(g); g.connect(ac.destination);
+    const now = ac.currentTime;
+    g.gain.setValueAtTime(0.0001, now);
+    g.gain.exponentialRampToValueAtTime(gain, now+0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, now+d);
+    o.start(now); o.stop(now+d+0.02);
+  }catch(e){}
+}
+function matrixClick(){ beep(1600,0.04,'square',0.12); }
+function correctFx(){ beep(1400,0.08,'triangle',0.20); setTimeout(()=>beep(1800,0.06,'triangle',0.16),85); }
+function wrongFx(){ beep(240,0.10,'sawtooth',0.14); setTimeout(()=>beep(180,0.08,'sawtooth',0.12),85); }
+
+function startAmbient(){
+  if(!soundOn) return;
+  try{
+    const ac = audioCtx();
+    if(ambientNodes) return;
+
+    const o1=ac.createOscillator(); o1.type="sine"; o1.frequency.value=76;
+    const o2=ac.createOscillator(); o2.type="sine"; o2.frequency.value=76.8;
+    const g=ac.createGain(); g.gain.value=0.02;
+    const lp=ac.createBiquadFilter(); lp.type="lowpass"; lp.frequency.value=420;
+
+    const trem=ac.createOscillator(); trem.type="sine"; trem.frequency.value=0.25;
+    const tremGain=ac.createGain(); tremGain.gain.value=0.012;
+
+    trem.connect(tremGain); tremGain.connect(g.gain);
+    o1.connect(lp); o2.connect(lp); lp.connect(g); g.connect(ac.destination);
+
+    o1.start(); o2.start(); trem.start();
+    ambientNodes={o1,o2,g,lp,trem,tremGain};
+  }catch(e){}
+}
+function stopAmbient(){
+  try{
+    if(!ambientNodes) return;
+    ambientNodes.o1.stop(); ambientNodes.o2.stop(); ambientNodes.trem.stop();
+    ambientNodes=null;
+  }catch(e){}
+}
+window.addEventListener('pointerdown', ()=>{ if(soundOn) startAmbient(); }, {once:true});
+
+function setSwitch(id,on){ document.getElementById(id).classList.toggle('on', on); }
+function toggleSound(){
+  soundOn = !soundOn;
+  setSwitch('swSound', soundOn);
+  if(!soundOn) stopAmbient();
+  else { matrixClick(); startAmbient(); }
+}
+function toggleRain(){
+  rainOn = !rainOn;
+  document.getElementById('rain').style.display = rainOn ? 'block':'none';
+  setSwitch('swRain', rainOn);
+  matrixClick();
+}
+
+/* ===== FX ===== */
+function emojiFloat(symbol="😎"){
+  const e=document.createElement("div");
+  e.className="emoji-float";
+  e.textContent=symbol;
+  e.style.left=(35+Math.random()*30)+"vw";
+  e.style.top=(55+Math.random()*10)+"vh";
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),1200);
+}
+function burst(){
+  const fx=document.getElementById('fx');
+  fx.classList.remove('hide');
+  fx.innerHTML="";
+  const colors=['#ec4899','#f472b6','#93c5fd','#60a5fa','#dbeafe'];
+  for(let k=0;k<30;k++){
+    const it=document.createElement('i');
+    it.style.left=(Math.random()*100)+'vw';
+    it.style.top='-10vh';
+    it.style.background=colors[k%colors.length];
+    it.style.animationDelay=(Math.random()*0.12)+'s';
+    fx.appendChild(it);
+  }
+  setTimeout(()=>{fx.classList.add('hide'); fx.innerHTML="";}, 1000);
+}
+
+/* ===== screens ===== */
+const S = {
+  login: document.getElementById('screenLogin'),
+  levels: document.getElementById('screenLevels'),
+  game: document.getElementById('screenGame'),
+  result: document.getElementById('screenResult')
+};
+function show(screen){
+  Object.values(S).forEach(x=>x.classList.add('hide'));
+  S[screen].classList.remove('hide');
+}
+
+/* ===== Level select render ===== */
+function renderLevels(){
+  document.getElementById('whoLevels').textContent = player;
+  const grid = document.getElementById('levelGrid');
+  grid.innerHTML = "";
+
+  LEVELS.forEach(L=>{
+    const bank = BANKS[L.id];
+    const passHist = loadPassHistory(L.id);
+    const last = passHist.length ? passHist[passHist.length-1] : null;
+
+    const div = document.createElement('div');
+    div.className = 'level';
+
+    div.innerHTML = `
+      <h3>${L.icon} ${bank.title}</h3>
+      <div class="meta">
+        <span class="chip">30 ข้อ</span>
+        <span class="chip">ผ่าน ≥ 24</span>
+        <span class="chip">จับผิด Tense</span>
+      </div>
+
+      <div class="row" style="justify-content:flex-start;margin-top:10px">
+        <button class="btn" style="min-width:180px" onclick="startLevel('${L.id}')">เริ่มด่านนี้ ▶</button>
+        ${passHist.length ? `<span class="chip">ผ่านแล้ว ✓ ล่าสุด: <b>${last.score}/30</b></span>` : `<span class="chip" style="opacity:.85">ยังไม่ผ่าน</span>`}
+      </div>
+
+      <div class="hist">
+        <div class="histTitle">🏆 ประวัติรอบที่ “ผ่าน”</div>
+        <div class="small">${passHist.length ? "แสดงเฉพาะรอบที่ผ่าน (80%+) เพื่อยืนยันว่าทดสอบแล้ว" : "ยังไม่ผ่านด่านนี้ (เลยยังไม่โชว์คะแนน)"}</div>
+        <div class="histList">
+          ${passHist.slice().reverse().slice(0,6).map((a,idx)=>`
+            <div class="histItem">รอบที่ผ่าน ${passHist.length-idx} • ${a.score}/30 (${a.pct}%) • ${a.when}</div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+    grid.appendChild(div);
+  });
+}
+
+/* ===== Sampling ===== */
+function sample30(levelId){
+  const arr = BANKS[levelId].items.slice();
+  for(let k=arr.length-1;k>0;k--){
+    const j=Math.floor(Math.random()*(k+1));
+    [arr[k],arr[j]]=[arr[j],arr[k]];
+  }
+  return arr.slice(0,30);
+}
+
+/* ===== Game ===== */
+function startLevel(levelId){
+  matrixClick();
+  currentLevelId = levelId;
+  questions = sample30(levelId);
+  i = 0; score = 0;
+
+  document.getElementById('levelName').textContent = BANKS[levelId].title;
+  document.getElementById('whoGame').textContent = player;
+  document.getElementById('score').textContent = score;
+
+  show('game');
+  renderQ();
+}
+
+function renderQ(){
+  const q = questions[i];
+  document.getElementById('step').textContent = (i+1);
+  document.getElementById('bar').style.width = (i/30*100) + "%";
+  document.getElementById('qTag').textContent = BANKS[currentLevelId].tag + " • PASS 80%";
+  document.getElementById('qText').textContent = q[0];
+  document.getElementById('fb').innerHTML = "";
+  const ex = document.getElementById('explain');
+  ex.classList.add('hide'); ex.innerHTML = "";
+}
+
+function answer(val){
+  const q = questions[i];
+  const correct = q[1];
+
+  if(val === correct){
+    score++;
+    document.getElementById('score').textContent = score;
+    document.getElementById('fb').innerHTML = `<span class="fb-ok">ถูกต้อง! ✔</span>`;
+    document.getElementById('explain').classList.remove('hide');
+    document.getElementById('explain').innerHTML = `<b>อธิบาย:</b> ${q[2]}`;
+    emojiFloat("😎"); emojiFloat("✨");
+    burst();
+    correctFx();
+  }else{
+    document.getElementById('fb').innerHTML = `<span class="fb-no">ยังไม่ถูก ❌</span>`;
+    document.getElementById('explain').classList.remove('hide');
+    document.getElementById('explain').innerHTML = `<b>เฉลย:</b> ${correct ? "TRUE" : "FALSE"}<br/><b>อธิบาย:</b> ${q[2]}`;
+    emojiFloat("😵‍💫");
+    wrongFx();
+  }
+
+  setTimeout(()=>{
+    i++;
+    if(i<30){ renderQ(); }
+    else{ endLevel(); }
+  }, 850);
+}
+
+function endLevel(){
+  document.getElementById('bar').style.width = "100%";
+  const pct = Math.round(score/30*100);
+  const pass = pct >= 80;
+
+  document.getElementById('resultLevel').textContent = BANKS[currentLevelId].title;
+  document.getElementById('resultWho').textContent = player;
+  document.getElementById('resultScore').textContent = score;
+  document.getElementById('resultTitle').textContent = pass ? "ผ่านด่านแล้ว! 🏆" : "ยังไม่ผ่านด่านนี้";
+
+  if(pass){
+    const when = new Date().toLocaleString('th-TH', {year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+    savePassAttempt(currentLevelId, {score:score, pct:pct, when:when});
+    document.getElementById('resultPass').innerHTML = `<span style="color:var(--ok);font-weight:900">ผ่าน ✅ ${pct}% (ต้อง ≥ 80%)</span>`;
+    document.getElementById('resultNote').textContent = "บันทึกคะแนน “รอบที่ผ่าน” แล้ว และจะแสดงบนหน้าเลือกด่าน";
+    correctFx(); setTimeout(()=>correctFx(),120);
+  }else{
+    document.getElementById('resultPass').innerHTML = `<span style="color:var(--bad);font-weight:900">ไม่ผ่าน ❌ ${pct}% (ต้อง ≥ 80%)</span>`;
+    document.getElementById('resultNote').textContent = "ตามกติกา: ไม่ผ่านจะ “ไม่บันทึกคะแนน” บนหน้าเลือกด่าน";
+    wrongFx();
+  }
+
+  show('result');
+}
+
+function playAgain(){ matrixClick(); startLevel(currentLevelId); }
+function backToLevels(){ matrixClick(); show('levels'); renderLevels(); }
+function enterLevels(){
+  matrixClick();
+  const name = (document.getElementById('playerName').value || "").trim();
+  player = name || "ผู้เล่น";
+  show('levels');
+  renderLevels();
+}
+function resetPlayer(){ matrixClick(); show('login'); }
+function clearAllHistory(){
+  if(!confirm("ล้างประวัติ (เฉพาะคนนี้) แน่ใจนะ?")) return;
+  matrixClick();
+  clearPlayerHistory();
+  renderLevels();
+}
+function quickDemo(){
+  matrixClick();
+  currentLevelId = "ps";
+  questions = sample30("ps").slice(0,3);
+  i = 0; score = 0;
+  player = (document.getElementById('playerName').value || "ผู้เล่น").trim() || "ผู้เล่น";
+  document.getElementById('levelName').textContent = BANKS[currentLevelId].title + " (เดโม่)";
+  document.getElementById('whoGame').textContent = player;
+  document.getElementById('score').textContent = score;
+  show('game');
+  renderQ();
+}
+
+/* ===== Matrix rain ===== */
+const canvas = document.getElementById('rain');
+const c = canvas.getContext('2d');
+let w,h,cols,ypos,chars,fontSize;
+function resize(){
+  w = canvas.width = window.innerWidth*devicePixelRatio;
+  h = canvas.height = window.innerHeight*devicePixelRatio;
+  fontSize = Math.floor(16*devicePixelRatio);
+  chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモラリルレロワヲン";
+  cols = Math.floor(w/fontSize);
+  ypos = Array(cols).fill(0);
+}
+window.addEventListener('resize', resize);
+resize();
+function drawRain(){
+  if(!rainOn){ requestAnimationFrame(drawRain); return; }
+  c.fillStyle = "rgba(0,0,0,0.08)";
+  c.fillRect(0,0,w,h);
+  c.fillStyle = "rgba(236,72,153,0.55)";
+  c.font = `${fontSize}px monospace`;
+  for(let k=0;k<cols;k++){
+    const text = chars[Math.floor(Math.random()*chars.length)];
+    const x = k*fontSize;
+    const y = ypos[k]*fontSize;
+    c.fillText(text,x,y);
+    if(y > h && Math.random() > 0.975) ypos[k]=0;
+    ypos[k]++;
+  }
+  requestAnimationFrame(drawRain);
+}
+drawRain();
+</script>
+</body>
+</html>
